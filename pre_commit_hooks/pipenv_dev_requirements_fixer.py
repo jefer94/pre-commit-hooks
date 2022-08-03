@@ -9,7 +9,7 @@ from typing import Sequence
 
 def fix_file() -> int:
     try:
-        with open('requirements_dev.txt', 'r') as f:
+        with open('requirements-dev.txt', 'r') as f:
             content = f.read()
     except FileNotFoundError:
         content = ''
@@ -18,7 +18,7 @@ def fix_file() -> int:
     result = subprocess.run(['pipenv', 'run', 'pip', 'freeze', '>', 'requirements.txt'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     if content != result.stdout:
-        with open('requirements_dev.txt', 'wb') as f:
+        with open('requirements-dev.txt', 'wb') as f:
             f.write(result.stdout)
 
         return 1
@@ -37,7 +37,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.filenames:
         ret_for_file = fix_file()
         if ret_for_file:
-            print('Fixing requirements_dev.txt')
+            print('Fixing requirements-dev.txt')
 
         retv |= ret_for_file
 
