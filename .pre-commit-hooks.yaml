@@ -1,11 +1,11 @@
 -   id: pipenv-requirements-fixer
-    name: fix requirements.txt
+    name: Fix requirements
     description: fix requirements.txt based pipenv packages.
     entry: pipenv-requirements-fixer
     language: python
     files: ^(Pipfile|Pipfile.lock|requirements.txt)$
 -   id: pipenv-dev-requirements-fixer
-    name: fix requirements-dev.txt
+    name: Fix requirements development
     description: fix requirements-dev.txt based pipenv packages.
     entry: pipenv-dev-requirements-fixer
     language: python
