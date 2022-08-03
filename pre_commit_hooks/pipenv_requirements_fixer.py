@@ -18,8 +18,6 @@ def fix_file() -> int:
     result = subprocess.run(['pipenv', 'requirements'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     if content != result.stdout:
-        print(type(content), content)
-        print(type(result.stdout), result.stdout)
         with open('requirements.txt', 'wb') as f:
             f.write(result.stdout)
 
