@@ -15,7 +15,7 @@ def fix_file() -> int:
         content = ''
 
     subprocess.run(['pipenv', 'install'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    result = subprocess.run(['pipenv', 'run', 'pip', 'freeze', '>', 'requirements.txt'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(['pipenv', 'requirements'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     if content != result.stdout:
         with open('requirements.txt', 'wb') as f:
