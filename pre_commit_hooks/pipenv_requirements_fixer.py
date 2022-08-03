@@ -9,10 +9,10 @@ from typing import Sequence
 
 def fix_file() -> int:
     try:
-        with open('requirements.txt', 'r') as f:
+        with open('requirements.txt', 'rb') as f:
             content = f.read()
     except FileNotFoundError:
-        content = ''
+        content = b''
 
     subprocess.run(['pipenv', 'install'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     result = subprocess.run(['pipenv', 'requirements'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
